@@ -11,6 +11,6 @@ fetch('https://cdn.jsdelivr.net/gh/ssyatelandisi/image@master/output.jpg').then(
     const blob = new Blob([new Buffer.from(decrypted, 'binary')], { type: 'image/jpeg' })
     const url = URL.createObjectURL(blob)
     document.querySelector("#aimg").src = url
-    console.log(url);
+}).finally(() => {
+    console.timeEnd('耗时')
 })
-console.timeEnd('耗时')
