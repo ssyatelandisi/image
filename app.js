@@ -1,4 +1,5 @@
 console.time('耗时')
+const start = new Date()
 const crypto = require('crypto')
 const key = new Buffer.from('0b1e1d000f0b07091d1f04071f1e0407')
 const iv = new Buffer.from('0123456789ABCDEF');
@@ -12,5 +13,8 @@ fetch('https://cdn.jsdelivr.net/gh/ssyatelandisi/image@master/output.jpg').then(
     const url = URL.createObjectURL(blob)
     document.querySelector("#aimg").src = url
 }).finally(() => {
+    const end = new Date()
+    const cost = end - start
+    document.querySelector('#info').innerText = `耗时：${cost}mm`
     console.timeEnd('耗时')
 })
